@@ -126,6 +126,24 @@ console.log(massaTotale)
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
+switch (true) {
+   case massaTotale < 500:
+      console,log ('Carico Leggero');
+      break;
+   case massaTotale >= 500 && massaTotale < 700:
+      console,log ('Carico medio');
+      break;
+   case massaTotale >= 700 && massaTotale < 900:
+      console.log ('attenzione: oltre 700');
+      break;
+   case massaTotale >= 900 && massaTotale < 1000:
+      console,log ('Carico Critico');
+      break;
+      default:
+         console.log('pericolo : SOVRACARICO')
+         break;
+   
+}
 
 /* ESERCIZIO 7 — Robotizza i n/a
    For: per ogni personaggio con gender === "n/a", cambialo in "robot".
@@ -134,6 +152,13 @@ console.log(massaTotale)
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
+for (let i = 0; i < starWarsCharacters.length; i++) {
+  if ( starWarsCharacters[i].gender === 'n/a') {
+   starWarsCharacters[i].gender = 'robot';
+
+  }
+}
+console.table(starWarsCharacters);
 
 /* ESERCIZIO 8 — Più alto e più basso
    For su starWarsCharacters. Trova il personaggio con altezza maggiore e quello con altezza minore.
@@ -143,6 +168,20 @@ console.log(massaTotale)
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
+let alto = starWarsCharacters[0];
+let basso = starWarsCharacters[0];
+for (let i = 0; i < starWarsCharacters.length; i++) {
+   if (Number(starWarsCharacters[i.height]) > alto) {
+      alto = (starWarsCharacters[i]);
+   }
+   if (Number(starWarsCharacters[i].height) < basso.height) {
+      basso= (starWarsCharacters[i]);
+   }
+
+}
+console.log(`piu alto: ${alto.name} : ${alto.height} cm`);
+console.log(`piu alto: ${basso.name} : ${basso.height} cm`);
+
 
 /* ESERCIZIO 9 — Rimuovi i femminili dai nomi (cicli annidati)
    Sull'array "nomi" dell'esercizio 1: for esterno su nomi, for interno su personaggiFemminili.
@@ -151,6 +190,16 @@ console.log(massaTotale)
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+
+console.log(`Lunghezza prima: ${names.length}`);
+for (let i = 0; i < names.length; i++) {
+   for (let j = 0; j < personaggiFemminili.length; j++) {
+      if (names[i] === personaggiFemminili [j].name) {
+         names.splice(i, 1);
+      }
+   }
+}
+console.log(`lunghezza dopo: ${names.length}`);
 
 
 /* ESERCIZIO 10 — Personaggio casuale
@@ -169,3 +218,6 @@ console.log(massaTotale)
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+for (const colore in perColoreOcchi) {
+   console.log(`${colore}: ${perColoreOcchi[colore].length}personaggi`)
+}
